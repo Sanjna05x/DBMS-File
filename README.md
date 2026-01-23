@@ -30,13 +30,9 @@ Why databases are needed
 
 Limitations of file systems
 
-Benefits of DBMS
-
 📌 Working with Tables
 
 Designing tables from problem statements
-
-Choosing correct data types
 
 Using keys to maintain relationships
 
@@ -48,11 +44,9 @@ Creating and modifying tables
 
 Managing schemas
 
-Data-handling queries
-
 Adding, updating, deleting, and retrieving record
-📌 Applying Rules & Constraintss
 
+📌 Applying Rules & Constraintss
 
 Enforcing data accuracy using constraints
 
@@ -71,12 +65,6 @@ Grouping data logically
 Understanding how joins work
 
 Writing join queries for real-world scenarios
-
-📌 Advanced Query Logic
-
-Subqueries for complex conditions
-
-Queries used in competitive programming platforms
 
 📝 Demonstrates logical thinking by identifying the second highest value in a dataset.
 
