@@ -1,0 +1,40 @@
+-- 1. Create database and use it
+CREATE DATABASE IF NOT EXISTS db;
+USE db;
+
+-- 2. Drop tables if they exist
+DROP TABLE IF EXISTS payment;
+DROP TABLE IF EXISTS order_table;
+
+-- 3. Create Payment table
+CREATE TABLE payment (
+    P_id INT PRIMARY KEY,
+    amount DECIMAL(15,2),
+    C_id INT UNIQUE NOT NULL
+);
+
+INSERT INTO payment (P_id, amount, C_id) VALUES
+(1, 500.00, 101),
+(2, 1000.00, 102),
+(3, 750.00, 103),
+(4, 1250.00, 104);
+
+-- 4. Print Payment table
+SELECT * FROM payment;
+
+-- 5. Create Order table (rename to avoid reserved keyword)
+CREATE TABLE order_table (
+    P_id INT PRIMARY KEY,
+    Order_Name VARCHAR(50),
+    amount DECIMAL(15,2),
+    C_id INT
+);
+
+-- 6. Copy values from Payment to Order table
+INSERT INTO order_table (P_id, Order_Name, amount, C_id)
+SELECT P_id, CONCAT('Order_', P_id), amount, C_id
+FROM payment
+WHERE P_id NOT IN (SELECT P_id FROM order_table);
+
+-- 7. Print Order table
+SELECT * FROM order_table;
