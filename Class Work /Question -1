@@ -1,1 +1,50 @@
 
+QUESTION-1
+
+-- 1. Create database and use it
+
+CREATE DATABASE IF NOT EXISTS db;
+USE db;
+
+DROP TABLE IF EXISTS Employee;
+
+-- 3. Create table with primary key and Department as VARCHAR
+
+CREATE TABLE Employee (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    salary INT,
+    job VARCHAR(50),
+    Department VARCHAR(50)
+);
+
+-- 4. Insert at least 5 rows
+
+INSERT INTO Employee (salary, job) VALUES
+(50000, 'HOD'),
+(25000, 'Teacher'),
+(30000, 'Assistant Professor'),
+(25000, 'Lab Assistant'),
+(25000, 'Accountant');
+
+-- 5. Display table using AS keyword
+
+SELECT
+    salary AS Employee_Salary,
+    job AS Job_Role
+FROM Employee;
+
+-- 6. Update Department column based on job
+
+UPDATE Employee
+SET Department = CASE
+    WHEN job = 'HOD'                  THEN 'CSE-APX'
+    WHEN job = 'Teacher'              THEN 'AS'
+    WHEN job = 'Assistant Professor'  THEN 'DCPD'
+    WHEN job = 'Lab Assistant'        THEN 'ML'
+    WHEN job = 'Accountant'           THEN 'CE'
+END
+WHERE id >= 1;  -- using PRIMARY KEY to satisfy safe update mode
+
+-- 7. Display final table
+
+SELECT * FROM Employee;
