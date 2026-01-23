@@ -1,1 +1,31 @@
+EXPERIMENT-1
+Introduction to sql & database creation
+1: installation & setup of mysql/postgresql/oracle
+2: creating and managing databases (create database, drop database)
+3: understanding sql data types and constraints (not null, unique, default)
 
+
+-- Create database and use it
+CREATE DATABASE IF NOT EXISTS school_db;
+USE school_db;
+
+-- Drop table if it exists (for a clean start)
+DROP TABLE IF EXISTS students;
+
+-- Create table with data types and constraints
+CREATE TABLE students (
+    student_id INT PRIMARY KEY AUTO_INCREMENT,  -- Unique ID
+    student_name VARCHAR(50) NOT NULL,          -- Cannot be empty
+    email VARCHAR(100) UNIQUE NOT NULL,         -- Must be unique
+    course VARCHAR(50) DEFAULT 'Computer Science', -- Default value
+    admission_date DATE                          -- Date column
+);
+
+-- Insert at least 3 rows
+INSERT INTO students (student_name, email, course, admission_date) VALUES
+('Alice', 'alice@example.com', 'AI & DS', '2026-01-15'),
+('Bob', 'bob@example.com', DEFAULT, '2026-01-16'),
+('Charlie', 'charlie@example.com', 'Cyber Security', '2026-01-17');
+
+-- Print the table
+SELECT * FROM students;
