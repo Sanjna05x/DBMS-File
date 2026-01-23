@@ -50,9 +50,9 @@ Managing schemas
 
 Data-handling queries
 
-Adding, updating, deleting, and retrieving records
+Adding, updating, deleting, and retrieving record
+📌 Applying Rules & Constraintss
 
-📌 Applying Rules & Constraints
 
 Enforcing data accuracy using constraints
 
@@ -77,7 +77,6 @@ Writing join queries for real-world scenarios
 Subqueries for complex conditions
 
 Queries used in competitive programming platforms
-
 
 📝 Demonstrates logical thinking by identifying the second highest value in a dataset.
 
