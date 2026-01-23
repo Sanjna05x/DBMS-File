@@ -1,0 +1,40 @@
+Data definition & manipulation (ddl & dml)
+1: creating tables with constraints (primary key, foreign key, check)
+2: performing insert, update, and delete operations
+3: retrieving data using select with where, order by clauses.
+
+
+-- 1: Creating tables with constraints (Primary Key, Foreign Key, Check)
+CREATE TABLE Departments (
+    DeptID INT PRIMARY KEY,
+    DeptName VARCHAR(50) NOT NULL UNIQUE
+);
+
+CREATE TABLE Employees (
+    EmpID INT PRIMARY KEY,
+    EmpName VARCHAR(100) NOT NULL,
+    Age INT CHECK (Age >= 18),
+    Salary DECIMAL(10,2) DEFAULT 3000.00,
+    DeptID INT,
+    FOREIGN KEY (DeptID) REFERENCES Departments(DeptID) ON DELETE SET NULL
+);
+
+-- 2: Performing INSERT, UPDATE, and DELETE operations
+INSERT INTO Departments (DeptID, DeptName) VALUES (101, 'Engineering'), (102, 'Marketing');
+
+INSERT INTO Employees (EmpID, EmpName, Age, Salary, DeptID) 
+VALUES (1, 'Alice Johnson', 29, 75000.00, 101),
+       (2, 'Bob Smith', 24, 55000.00, 102);
+
+UPDATE Employees 
+SET Salary = Salary * 1.10 
+WHERE DeptID = 101;
+
+DELETE FROM Employees 
+WHERE EmpID = 2;
+
+-- 3: Retrieving data using SELECT with WHERE and ORDER BY clauses
+SELECT EmpName, Salary, Age 
+FROM Employees 
+WHERE Salary > 50000 AND Age < 40 
+ORDER BY Salary DESC;
