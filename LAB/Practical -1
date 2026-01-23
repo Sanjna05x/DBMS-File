@@ -6,8 +6,8 @@ Introduction to sql & database creation
 
 
 -- Create database and use it
-CREATE DATABASE IF NOT EXISTS school_db;
-USE school_db;
+CREATE DATABASE IF NOT EXISTS course_db;
+USE course_db;
 
 -- Drop table if it exists (for a clean start)
 DROP TABLE IF EXISTS students;
